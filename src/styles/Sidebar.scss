@@ -1,0 +1,93 @@
+@import "Theme";
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                   SIDEBAR                                  */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.Sidebar {
+  width: 280px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: scroll;
+  padding: 10px 0 10px;
+
+  .logo {
+    width: fit-content;
+    padding: 10px 10px 10px 50px;
+  }
+
+  .subTitle {
+    color: $text;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    padding: 10px 50px;
+  }
+
+  .user {
+    width: 100%;
+    color: $text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+    margin-top: 150px;
+
+    .details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 32px;
+      width: 32px;
+    }
+
+    button {
+      background-color: transparent;
+      font-size: 15px;
+      border: none;
+      justify-self: right;
+      padding: 5px;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                SIDEBAR CARD                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.SidebarCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  border-left: 4px solid transparent;
+  padding: 10px 50px;
+  transition: border 0.2s;
+
+  &:hover {
+    border-left: 4px solid #ff530376;
+  }
+}
