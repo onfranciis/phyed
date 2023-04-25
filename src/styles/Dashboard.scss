@@ -1,0 +1,229 @@
+@import "Theme";
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                  DASHBOARD                                 */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.Dashboard {
+  padding: 22px 60px 50px;
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .heading {
+    display: flex;
+    margin: 46px 0 23px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .greetingParent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .greeting {
+    font-weight: bold;
+    font-size: 24px;
+    color: $black300;
+  }
+
+  .view {
+    color: $primary;
+    font-size: 14px;
+  }
+
+  .pieCharts {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+}
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                 DATE OPTION                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+.DateOption {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+
+  p {
+    background-color: #ff530329;
+    color: $primary;
+    font-size: 14px;
+    padding: 2px 7px;
+    border: 1px solid $primary;
+    border-radius: 100px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                          LINE GRAPH CANVAS PARENT                          */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.LineGraph {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 56px;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .page {
+      color: $grey500;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .all {
+      color: $grey500;
+      font-size: 14px;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+  }
+
+  .figure {
+    font-weight: bold;
+    font-size: 48px;
+  }
+}
+
+.LineGraphCanvasParent {
+  width: 100%;
+  max-width: 700px;
+  border: 1px solid #eff1f6;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                    TOPS                                    */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.TopContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #eff1f6;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.TopParent {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .title {
+    font-size: 18px;
+  }
+}
+
+.Top {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+
+  .countries {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+
+    .country {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+
+      p {
+        font-size: 16px;
+        margin-left: 8px;
+      }
+
+      .size {
+        font-weight: bold;
+        margin-right: 12px;
+      }
+
+      span {
+        min-height: 12px;
+        min-width: 12px;
+        border-radius: 50%;
+        align-self: center;
+      }
+    }
+  }
+
+  canvas {
+    padding: 10px;
+  }
+
+  .pie {
+    width: 160px;
+    height: 160px;
+  }
+}
