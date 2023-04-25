@@ -11,7 +11,7 @@
 /* -------------------------------------------------------------------------- */
 
 .Sidebar {
-  width: 280px;
+  width: 330px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,6 +36,7 @@
   .user {
     width: 100%;
     color: $text;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
