@@ -1,9 +1,12 @@
+import MainBody from "./components/mainBody/MainBody";
 import Sidebar from "./components/sidebar/Sidebar";
+import "./styles/App.scss";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Sidebar />
+      <MainBody />
     </div>
   );
 }
