@@ -9,7 +9,8 @@ import {
 } from "chart.js";
 import { useState, useEffect, useRef } from "react";
 import { Line } from "react-chartjs-2";
-import faker from "faker";
+import axios from "axios";
+import { ResponseType } from "../../../hooks/fetchData";
 
 interface ChartDataType {
   labels: string[];
@@ -18,8 +19,12 @@ interface ChartDataType {
     label: string;
     data: any[];
     borderColor: string;
-    backgroundColor: CanvasGradient;
+    backgroundColor?: CanvasGradient | string;
   }[];
+}
+
+interface LineGraphPropType {
+  setAllTime: (data: number) => void;
 }
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler);
@@ -37,16 +42,6 @@ const options = {
   },
 };
 
-const labels = [
-  "18 Dec",
-  "19 Dec",
-  "20 Dec",
-  "21 Dec",
-  "22 Dec",
-  "23 Dec",
-  "24 Dec",
-];
-
 function createGradient(ctx: CanvasRenderingContext2D, area: ChartArea) {
   const colorStart = "rgba(255, 84, 3, 0)";
   const colorEnd = "rgba(255, 84, 3, 0.4)";
@@ -59,33 +54,54 @@ function createGradient(ctx: CanvasRenderingContext2D, area: ChartArea) {
   return gradient;
 }
 
-const LineGraph = () => {
-  const chartRef = useRef<ChartJS>(null);
+const LineGraph = ({ setAllTime }: LineGraphPropType) => {
+  const chartRef = useRef<any>(null);
+  const [lineData, setLineData] = useState({});
+  const labels = Object.keys(lineData);
   const [chartData, setChartData] = useState<ChartDataType>({
-    labels,
-    datasets: [],
+    labels: labels.map((label) => label.toString()),
+    datasets: [
+      {
+        fill: true,
+        label: "",
+        data: Object.values(lineData),
+        borderColor: "rgba(255, 84, 3, 0.3)",
+        backgroundColor: "rgba(255, 84, 3, 0.3)",
+      },
+    ],
   });
   const chart = chartRef.current;
 
+ // This effect runs a code that sets the gradient color when the canvas is ready
+
   useEffect(() => {
-    if (!chart) {
-      return;
-    }
+    setTimeout(() => {
+      if (chart) {
+        const data = {
+          labels,
+          datasets: [
+            {
+              fill: true,
+              label: "",
+              data: Object.values(lineData),
+              borderColor: "rgba(255, 84, 3, 0.3)",
+              backgroundColor: createGradient(chart.ctx, chart.chartArea),
+            },
+          ],
+        };
+        setChartData(data);
+      }
+    }, 1000);
+  }, [lineData]);
 
-    const data = {
-      labels,
-      datasets: [
-        {
-          fill: true,
-          label: "",
-          data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-          borderColor: "rgba(255, 84, 3, 0.3)",
-          backgroundColor: createGradient(chart.ctx, chart.chartArea),
-        },
-      ],
-    };
-
-    setChartData(data);
+  useEffect(() => {
+    axios
+      .get("https://fe-task-api.mainstack.io/")
+      .then((res) => res.data)
+      .then((res: ResponseType) => {
+        setLineData(res.graph_data.views);
+        setAllTime(Object.values(res.graph_data.views).reduce((a, b) => a + b));
+      });
   }, []);
 
   return (
