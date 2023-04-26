@@ -1,7 +1,36 @@
 import { Chart as ChartJS, ArcElement } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { ResponseType } from "../../../hooks/fetchData";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const TopLocations = () => {
+  const [countries, setCountries] = useState<
+    { country: string; count: number; percent: number }[]
+  >([]);
+
+  useEffect(() => {
+    axios
+      .get("https://fe-task-api.mainstack.io/")
+      .then((res) => res.data)
+      .then((res: ResponseType) => {
+        setCountries(res.top_locations);
+      });
+  }, []);
+
+  const data = {
+    labels: ["", "", "", "", "", ""],
+    datasets: [
+      {
+        label: "",
+        data: countries.map((country) => country.percent),
+        backgroundColor: CountriesData.map((country) => country.color),
+        borderColor: CountriesData.map((country) => country.color),
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <div className="TopContainer">
       <div className="TopParent">
@@ -11,12 +40,19 @@ const TopLocations = () => {
 
       <div className="Top">
         <div className="countries">
-          {CountriesData.map((country) => (
+          {countries?.map((country, index) => (
             <div className="country" key={country.country}>
-              <img src={country.src} alt="" height={15} width={21} />
+              <img
+                src={`/resources/${country.country.replace(" ", "")}.svg`}
+                alt=""
+                height={15}
+                width={21}
+              />
               <p>{country.country}</p>
-              <p className="size">{country.size}%</p>
-              <span style={{ backgroundColor: country.color }}></span>
+              <p className="size">{country.percent}%</p>
+              <span
+                style={{ backgroundColor: CountriesData[index].color }}
+              ></span>
             </div>
           ))}
         </div>
@@ -30,21 +66,6 @@ const TopLocations = () => {
 };
 
 ChartJS.register(ArcElement);
-
-const data = {
-  labels: ["", "", "", "", "", ""],
-  datasets: [
-    {
-      label: "",
-      data: [
-        34.246575342, 16.438356164, 16.438356164, 16.438356164, 16.438356164,
-      ],
-      backgroundColor: ["#599EEA", "#844FF6", "#0FB77A", "#FAB70A", "#F09468"],
-      borderColor: ["#599EEA", "#844FF6", "#0FB77A", "#FAB70A", "#F09468"],
-      borderWidth: 1,
-    },
-  ],
-};
 
 const CountriesData = [
   {
