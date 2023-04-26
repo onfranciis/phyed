@@ -15,9 +15,6 @@ const TopReferrals = () => {
       .then((res) => res.data)
       .then((res: ResponseType) => {
         setCountries(res.top_sources);
-      })
-      .catch((err) => {
-        null;
       });
   }, []);
 
