@@ -12,7 +12,7 @@ const SidebarCard = ({
       onClick={() => {
         setSelected(Title);
       }}
-      style={{ borderLeftColor: selected ? "#FF5403" : "" }}
+      style={{ borderLeftColor: selected ? "#68BBE3" : "" }}
     >
       <img
         src={Img}
@@ -21,11 +21,20 @@ const SidebarCard = ({
         width={20}
         style={{
           filter: selected
-            ? "invert(33%) sepia(67%) saturate(2248%) hue-rotate(358deg) brightness(107%) contrast(103%)"
+            ? "invert(22%) sepia(54%) saturate(2734%) hue-rotate(187deg) brightness(97%) contrast(96%)"
             : "invert(37%) sepia(17%) saturate(381%) hue-rotate(167deg) brightness(93%) contrast(87%)",
+
+          scale: selected ? "1.2" : "1",
         }}
       />
-      <p style={{ color: selected ? "#FF5403" : "#56616B" }}>{Title}</p>
+      <p
+        style={{
+          color: selected ? "#68BBE3" : "#56616B",
+          fontWeight: selected ? "bold" : "normal",
+        }}
+      >
+        {Title}
+      </p>
     </div>
   );
 };

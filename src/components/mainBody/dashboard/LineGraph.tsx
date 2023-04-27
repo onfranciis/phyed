@@ -42,9 +42,9 @@ const LineGraph = () => {
       {
         fill: true,
         label: "",
-        data: [100, 45, 96, 78, 51, 21, 35, 84],
-        borderColor: "rgba(255, 84, 3, 0.3)",
-        backgroundColor: "rgba(255, 84, 3, 0.3)",
+        data: [100, 45, 97, 78, 51, 26, 35, 84],
+        borderColor: "#0E86D4",
+        backgroundColor: "#68bae370",
       },
     ],
   };

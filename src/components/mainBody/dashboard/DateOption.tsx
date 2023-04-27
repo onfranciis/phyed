@@ -7,7 +7,6 @@ const DateOptionData = [
   { day: "7days" },
   { day: "30days" },
   { day: "All Time" },
-  { day: "Custom Date" },
 ];
 
 const DateOption = () => {

@@ -10,7 +10,7 @@ const Dashboard = () => {
 
       <div className="heading">
         <div className="greetingParent">
-          <p className="greeting">Good morning, Blessing ⛅</p>
+          <p className="greeting">Good morning, John Doe ⛅</p>
           <p className="subGreeting">Check out your dashboard summary.</p>
         </div>
 
@@ -31,13 +31,12 @@ const Dashboard = () => {
           </button>
         </div>
 
-        <p className="figure">500</p>
+        <p className="figure">516</p>
         <LineGraph />
       </div>
 
       <div className="pieCharts">
         <TopLocations />
-        <TopReferrals />
       </div>
     </div>
   );
