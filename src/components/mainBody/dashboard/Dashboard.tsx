@@ -1,7 +1,6 @@
 import DateOption from "./DateOption";
 import LineGraph from "./LineGraph";
 import TopLocations from "./TopLocations";
-import TopReferrals from "./TopReferral";
 
 const Dashboard = () => {
   return (

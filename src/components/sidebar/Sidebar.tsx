@@ -2,21 +2,16 @@ import SidebarCard from "./SidebarCard";
 import "../../styles/Sidebar.scss";
 import { useState } from "react";
 
-const SidebarActions = [
-  { src: "/resources/dashboard.svg", title: "Dashboard" },
-  { src: "/resources/edit.svg", title: "Courses" },
-  { src: "/resources/group.svg", title: "Saved" },
-  { src: "/resources/hourglass_empty.svg", title: "Blog" },
-  { src: "/resources/add_a_photo.svg", title: "Notifications" },
-  { src: "/resources/subscriptions.svg", title: "My Profile" },
-  { src: "/resources/delete.svg", title: "Logout" },
-  { src: "/resources/file_present.svg", title: "Item7" },
-  { src: "/resources/alarm.svg", title: "Item8" },
-];
-
-const Sidebar = () => {
-  const [selected, setSelected] = useState<string>(SidebarActions[0]?.title);
-
+interface SidebarPropType {
+  selected: string;
+  setSelected: (data: string) => void;
+  SidebarActions: { src: string; title: string }[];
+}
+const Sidebar = ({
+  selected,
+  setSelected,
+  SidebarActions,
+}: SidebarPropType) => {
   return (
     <div className="Sidebar">
       <div className="logo">
