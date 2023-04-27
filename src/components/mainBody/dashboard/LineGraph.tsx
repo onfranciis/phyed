@@ -8,18 +8,6 @@ import {
 } from "chart.js";
 import { useRef } from "react";
 import { Line } from "react-chartjs-2";
-import faker from "faker";
-
-interface ChartDataType {
-  labels: string[];
-  datasets: {
-    fill: boolean;
-    label: string;
-    data: any[];
-    borderColor: string;
-    backgroundColor: CanvasGradient | string;
-  }[];
-}
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler);
 
@@ -54,7 +42,7 @@ const LineGraph = () => {
       {
         fill: true,
         label: "",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: [100, 45, 96, 78, 51, 21, 35, 84],
         borderColor: "rgba(255, 84, 3, 0.3)",
         backgroundColor: "rgba(255, 84, 3, 0.3)",
       },
