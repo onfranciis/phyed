@@ -4,13 +4,13 @@
 /*                                     -                                      */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-/*                                   COURSES                                  */
+/*                                    SAVED                                   */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                                      -                                     */
 /* -------------------------------------------------------------------------- */
 
-.Courses {
+.Saved {
   padding: 22px 60px 50px;
 
   .title {
@@ -44,19 +44,29 @@
     font-size: 14px;
     font-weight: bold;
   }
+
+  .saved {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                      -                                     */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-/*                                 COURSE CARD                                */
+/*                                 SAVED CARD                                 */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                                      -                                     */
 /* -------------------------------------------------------------------------- */
 
-.CourseCard {
+.SavedCard {
+  min-height: 100px;
   width: 150px;
   background-color: #055c9d;
   color: white;
@@ -65,18 +75,29 @@
   flex-direction: column;
   gap: 10px;
   padding: 10px 20px;
-  filter: drop-shadow(3px 3px 3px black);
+  filter: drop-shadow(0 0 2px black);
   margin-top: 50px;
+  scale: 1.1;
 
   &:hover {
-    filter: drop-shadow(0 0 2px black);
+    filter: drop-shadow(0px 0px 3px black);
+    scale: 1.05;
   }
 
   .author {
     margin: 20px 0 5px;
   }
+  .tags {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 
-  .duration {
-    font-size: 13px;
+    .tag {
+      width: fit-content;
+      background-color: #0e86d4;
+      font-size: 15px;
+      padding: 0px 7px;
+      border-radius: 8px;
+    }
   }
 }

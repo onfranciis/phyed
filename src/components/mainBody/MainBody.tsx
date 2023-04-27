@@ -1,6 +1,7 @@
 import "../../styles/App.scss";
 import Courses from "./courses/Courses";
 import Dashboard from "./dashboard/Dashboard";
+import Saved from "./saved/Saved";
 
 const MainBody = ({ selected }: { selected: string }) => {
   const renderBody = () => {
@@ -9,6 +10,8 @@ const MainBody = ({ selected }: { selected: string }) => {
         return <Dashboard />;
       case "Courses":
         return <Courses />;
+      case "Saved":
+        return <Saved />;
 
       default:
         break;
