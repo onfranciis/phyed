@@ -21,7 +21,7 @@ const Profile = () => {
 
         <div className="section">
           <p className="tag">Saved </p>
-          <p className="figure">20</p>
+          <p className="figure">8</p>
         </div>
 
         <div className="section">

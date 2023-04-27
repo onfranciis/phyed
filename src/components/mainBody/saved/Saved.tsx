@@ -24,18 +24,6 @@ const Saved = () => {
         <SavedCard />
         <SavedCard />
         <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
-        <SavedCard />
       </div>
     </div>
   );
