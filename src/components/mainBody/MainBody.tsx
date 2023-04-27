@@ -3,6 +3,7 @@ import Blog from "./blog/Blog";
 import Courses from "./courses/Courses";
 import Dashboard from "./dashboard/Dashboard";
 import Notifications from "./notifications/Notifications";
+import Profile from "./profile/Profile";
 import Saved from "./saved/Saved";
 
 const MainBody = ({ selected }: { selected: string }) => {
@@ -18,6 +19,8 @@ const MainBody = ({ selected }: { selected: string }) => {
         return <Blog />;
       case "Notifications":
         return <Notifications />;
+      case "My Profile":
+        return <Profile />;
       default:
         break;
     }
