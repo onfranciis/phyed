@@ -5,9 +5,8 @@ import {
   PointElement,
   LineElement,
   Filler,
-  ChartArea,
 } from "chart.js";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Line } from "react-chartjs-2";
 import faker from "faker";
 
@@ -18,7 +17,7 @@ interface ChartDataType {
     label: string;
     data: any[];
     borderColor: string;
-    backgroundColor: CanvasGradient;
+    backgroundColor: CanvasGradient | string;
   }[];
 }
 
@@ -47,46 +46,20 @@ const labels = [
   "24 Dec",
 ];
 
-function createGradient(ctx: CanvasRenderingContext2D, area: ChartArea) {
-  const colorStart = "rgba(255, 84, 3, 0)";
-  const colorEnd = "rgba(255, 84, 3, 0.4)";
-
-  const gradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
-
-  gradient.addColorStop(0, colorStart);
-  gradient.addColorStop(1, colorEnd);
-
-  return gradient;
-}
-
 const LineGraph = () => {
-  const chartRef = useRef<ChartJS>(null);
-  const [chartData, setChartData] = useState<ChartDataType>({
+  const chartRef = useRef<any>(null);
+  const chartData = {
     labels,
-    datasets: [],
-  });
-  const chart = chartRef.current;
-
-  useEffect(() => {
-    if (!chart) {
-      return;
-    }
-
-    const data = {
-      labels,
-      datasets: [
-        {
-          fill: true,
-          label: "",
-          data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-          borderColor: "rgba(255, 84, 3, 0.3)",
-          backgroundColor: createGradient(chart.ctx, chart.chartArea),
-        },
-      ],
-    };
-
-    setChartData(data);
-  }, []);
+    datasets: [
+      {
+        fill: true,
+        label: "",
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        borderColor: "rgba(255, 84, 3, 0.3)",
+        backgroundColor: "rgba(255, 84, 3, 0.3)",
+      },
+    ],
+  };
 
   return (
     <div className="LineGraphCanvasParent">
