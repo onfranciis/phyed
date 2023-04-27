@@ -1,6 +1,5 @@
 import SidebarCard from "./SidebarCard";
 import "../../styles/Sidebar.scss";
-import { useState } from "react";
 
 interface SidebarPropType {
   selected: string;
